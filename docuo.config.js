@@ -15,6 +15,7 @@ const config = {
     navbar: {
       title: "My Site",
       logo: "image/logo.png",
+      iconRedirectUrl: "https://www.spreading.ai",
       items: [
         {
           type: "docSidebar",

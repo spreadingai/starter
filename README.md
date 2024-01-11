@@ -1,1 +1,1 @@
-# DOCUO-MDX-TRMPLATE
+# starter
