@@ -1,8 +1,6 @@
 {
   "title": "My Site",
   "favicon": "image/favicon.ico",
-  "iconRedirectUrl": "https://www.spreading.ai",
-  "logo": "image/logo.png",
   "instances": [
     {
       "id": "default",
