@@ -1,35 +1,51 @@
 {
-  "title": "My Site",
+  "title": "My site",
   "favicon": "image/favicon.ico",
-  "instances": [
-    {
-      "id": "default",
-      "label": "docs",
-      "path": "docs",
-      "routeBasePath": "docs"
-    }
-  ],
   "themeConfig": {
     "navbar": {
-      "title": "My Site",
+      "title": "My project",
       "logo": "image/logo.png",
-      "iconRedirectUrl": "https://www.spreading.ai",
       "items": [
         {
           "type": "docSidebar",
           "sidebarIds": ["mySidebar"],
-          "label": "NavItem",
-          "position": "left",
-          "docsInstanceId": "default"
+          "label": "Documentation",
+          "position": "left"
         }
       ]
     },
     "footer": {
       "logo": "image/logo.png",
-      "copyright": "Copyright @2024 SPREADING. All Rights Reserved",
-      "caption": "",
-      "links": [],
-      "socials": []
+      "caption": "My project",
+      "links": [
+        {
+          "title": "Product",
+          "items": [
+            {
+              "label": "documentation",
+              "to": "/"
+            }
+          ]
+        }
+      ],
+      "socials": [
+        {
+          "logo": "Twitter",
+          "href": "https://twitter.com/docuo_team"
+        },
+        {
+          "logo": "LinkedIn",
+          "href": "https://www.linkedin.com/company/spreadingai"
+        },
+        {
+          "logo": "Discord",
+          "href": "https://discord.gg/W8p93wcR"
+        },
+        {
+          "logo": "Github",
+          "href": "https://github.com/spreadingai"
+        }
+      ]
     }
   }
 }
