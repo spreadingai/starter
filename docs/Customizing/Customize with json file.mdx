@@ -476,68 +476,6 @@ The `sidebarId` of the navbar item corresponds to one of the sidebar keys, which
 
 </CodeGroup>
 
-- **Navbar docs version dropdown**
-
-Displays the version list of the current instance of the site.
-
-Accepted fields:
-
-| Name       | Type                 | Default      | Description                                                  |
-| ---------- | -------------------- | ------------ | ------------------------------------------------------------ |
-| `type`     | `"docsVersionDropdown"`          | **Required**      | Set the type of this navbar item to the document version dropdown menu.                        |
-| `position`       | `"left"       \| "right"` | `"left"`                            | The side of the navbar this item should appear on.           |
-
-Example configuration:
-
-<CodeGroup>
-
-```json docuo.config.json
-{
-  "themeConfig": {
-    "navbar": {
-      "items": [
-        {
-          "type": "docsVersionDropdown"
-        }
-      ]
-    }
-  }
-}
-```
-
-</CodeGroup>
-
-- **Navbar docs instance dropdown**
-
-Displays a list of all instances of the site.
-
-Accepted fields:
-
-| Name       | Type                 | Default      | Description                                                  |
-| ---------- | -------------------- | ------------ | ------------------------------------------------------------ |
-| `type`     | `"docsInstanceDropdown"`          | **Required**      | Set the type of this navbar item to the document instance dropdown menu.                        |
-| `position`       | `"left"       \| "right"` | `"left"`                            | The side of the navbar this item should appear on.           |
-
-Example configuration:
-
-<CodeGroup>
-
-```json docuo.config.json
-{
-  "themeConfig": {
-    "navbar": {
-      "items": [
-        {
-          "type": "docsInstanceDropdown"
-        }
-      ]
-    }
-  }
-}
-```
-
-</CodeGroup>
-
 ### Footer
 
 You can add logo and a copyright to the footer via `themeConfig.footer`. Logo can be placed in static folder. Logo URL works in the same way of the navbar logo.
