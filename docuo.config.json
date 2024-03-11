@@ -54,5 +54,11 @@
       "apiKey": "YOUR_API_KEY",
       "indexName": "YOUR_INDEX_NAME"
     }
+  },
+  "openapi": {
+    "petstore": {
+      "specPath": "docs/Using OpenAPI/OpenAPI Demo/petstore.yaml",
+      "outputDir": "docs/Using OpenAPI/OpenAPI Demo"
+    }
   }
 }
