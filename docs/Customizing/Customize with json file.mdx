@@ -1,7 +1,8 @@
 # Customize with json file
 
 <Note title="INFO">
-Refer to the Getting Started [**Configuration**](../Getting%20started/Configuration.mdx) for examples.
+  Refer to the Getting Started
+  [**Configuration**](../Getting%20started/Configuration.mdx) for examples.
 </Note>
 
 ## Overview
@@ -23,7 +24,9 @@ Here's an example:
 </CodeGroup>
 
 <Tip title="TIP">
-Refer to [**Syntax to declare**](../Getting%20started/Configuration.mdx#syntax-to-declare-docuoconfigjson) `docuo.config.json` for a more exhaustive list of examples and explanations.
+  Refer to [**Syntax to
+  declare**](../Getting%20started/Configuration.mdx#syntax-to-declare-docuoconfigjson)
+  `docuo.config.json` for a more exhaustive list of examples and explanations.
 </Tip>
 
 ### Required fields
@@ -32,7 +35,7 @@ Refer to [**Syntax to declare**](../Getting%20started/Configuration.mdx#syntax-t
 
 - Type: `string`
 
-Title for your website. Will be used in metadata and as browser tab title.
+Title for your website. It will be used in metadata and as browser tab title.
 
 <CodeGroup>
 
@@ -64,8 +67,7 @@ Example:
         {
           "type": "docSidebar",
           "sidebarIds": ["mySidebar"],
-          "label": "Documentation",
-          "position": "left"
+          "label": "Documentation"
         }
       ]
     },
@@ -97,18 +99,21 @@ Example:
           "href": "Your discord url"
         },
         {
-          "logo": "Github",
+          "logo": "GitHub",
           "href": "Your github url"
         }
       ]
-  	} 
+    },
+    "colorMode": {
+      "defaultMode": "light",
+      "disableSwitch": false,
+      "respectPrefersColorScheme": false
+    }
   }
 }
 ```
 
 </CodeGroup>
-
-
 
 ### Optional fields
 
@@ -116,10 +121,11 @@ Example:
 
 - Type: `string | undefined`
 
-Path to your site favicon; must be a URL that can be used in link's href. For example, if your favicon is in `static/image/favicon.ico`:
+Path to your site favicon. It must be a URL that can be used in link's href. For example, if your favicon is in `static/image/favicon.ico`:
 
 <Tip title="TIP">
-The default `static` direcory is  a static directory. The files under the paths will be copied to the build output as-is，which are absolute paths.
+  The default `static` direcory is a static directory. The files under the paths
+  will be copied to the build output as-is，which are absolute paths.
 </Tip>
 
 <CodeGroup>
@@ -127,84 +133,6 @@ The default `static` direcory is  a static directory. The files under the paths 
 ```json docuo.config.json
 {
   "favicon": "image/favicon.ico"
-}
-```
-
-</CodeGroup>
-
-#### `instances`
-
-- Type: `InstanceItem[] | undefined`
-
-You can use this field when you want a Docuo site to host 2 distinct sets of documentation (or more). See [Docs Multi-instance](../Editing%20docs/Managing%20docs/Docs%20Multi-instance.mdx) for details.
-
-`InstanceItem` Accepted fields:
-
-| Name              | Type           | Default     | Description                                      |
-| ----------------- | -------------- | ----------- | ------------------------------------------------ |
-| `id`           | `string`       | `undefined` | Instance unique identifier.                            |
-| `label`            | `string`    | `undefined` | The name to be shown for this instance.                   |
-| `path` | `string`       | `undefined` | Name of the entity directory corresponding to the instance. The value is fixed to [instance id]_docs.   |
-| `routeBasePath`           | `string` | `undefined`        | The base url path for all documents under the current instance. |
-
-<Note title="INFO">
-When you have multiple instances, the default instance corresponding to the docs directory is automatically inserted into instances within the Docuo without showing Settings, unless you want to customize the `label` and `routeBasePath` fields for the default instance.
-</Note>
-
-<Warning title="WARNING">
-The default instance's `id` is fixed to 'default' and `path` is fixed to 'doc', which cannot be modified, except for `label` and `routeBasePath`.
-</Warning>
-
-<CodeGroup>
-
-```json docuo.config.json
-{
-  "instances": [
-    {
-      "id": "callkit",
-      "label": "callkit",
-      "path": "callkit_docs",
-      "routeBasePath": "callkit"
-    },
-    {
-      "id": "roomkit",
-      "label": "roomkit",
-      "path": "roomkit_docs",
-      "routeBasePath": "roomkit"
-    }
-  ]
-}
-```
-
-</CodeGroup>
-
-#### `search`
-
-- Type: `AlgoliaItem | undefined`
-
-If you want to display the fuzzy search feature on the page header, you need to configure this field. See [Docuo Search](../Engaging%20users/Search.mdx) for details.
-
-`AlgoliaItem` Accepted fields:
-
-| Name              | Type           | Default     | Description                                      |
-| ----------------- | -------------- | ----------- | ------------------------------------------------ |
-| `appId`           | `string`       | `undefined` | AppId generated by Algolia.                            |
-| `apiKey`            | `string`    | `undefined` | ApiKey generated by Algolia.                   |
-| `indexName` | `string`       | `undefined` |  IndexName generated by Algolia.   |
-
-Example configuration:
-
-<CodeGroup>
-
-```json docuo.config.json
-{
-  "search": {
-    "algolia": {
-      "appId": "YOUR_APP_ID",
-      "apiKey": "YOUR_API_KEY",
-      "indexName": "YOUR_INDEX_NAME"
-    }
-  }
 }
 ```
 
@@ -223,19 +151,16 @@ Accepted fields:
 | `iconRedirectUrl` | `string`       | `undefined` | Link to navigate to when the logo is clicked.    |
 | `items`           | `NavbarItem[]` | `[]`        | A list of navbar items. See specification below. |
 
-
-
 #### Navbar logo
 
 The logo can be placed in static folder.
 
 <Tip title="TIP">
-The default `static` direcory is  a static directory. The files under the paths will be copied to the build output as-is，which are absolute paths.
+  The default `static` direcory is a static directory. The files under the paths
+  will be copied to the build output as-is，which are absolute paths.
 </Tip>
 
 Example configuration:
-
-<CodeGroup>
 
 ```json docuo.config.json
 {
@@ -248,15 +173,27 @@ Example configuration:
 }
 ```
 
-</CodeGroup>
+If your website has configured `dark mode` and you have another logo for `dark mode`, you can also configure logo like this:
+
+```json docuo.config.json
+{
+  "themeConfig": {
+    "navbar": {
+      "title": "Your site title",
+      "logo": {
+        "light": "image/logo_light.png",
+        "dark": "image/logo_dark.png"
+      }
+    }
+  }
+}
+```
 
 #### Navbar iconRedirectUrl
 
-The default URL of your logo will be  redirected to your base URL of your site. You can specify your own logo redirect URL. If the URL is an external link, it will open in a new tab.
+The default URL of your logo will be redirected to your base URL of your site. You can specify your own logo redirect URL. If the URL is an external link, it will open in a new tab.
 
 Example configuration:
-
-<CodeGroup>
 
 ```json docuo.config.json
 {
@@ -270,15 +207,9 @@ Example configuration:
 }
 ```
 
-</CodeGroup>
-
-
-
 #### Navbar items
 
 You can add items to the navbar using `themeConfig.navbar.items`.
-
-<CodeGroup>
 
 ```json docuo.config.json
 {
@@ -320,11 +251,7 @@ You can add items to the navbar using `themeConfig.navbar.items`.
 }
 ```
 
-</CodeGroup>
-
 The items can have different behaviors based on the `type` field. The sections below will introduce you to all the types of navbar items available.
-
-
 
 - **Navbar link**
 
@@ -332,17 +259,15 @@ By default, Navbar items are regular links (internal or external).
 
 Accepted fields:
 
-| Name       | Type                 | Default      | Description                                                  |
-| ---------- | -------------------- | ------------ | ------------------------------------------------------------ |
-| `type`     | `"default"`          | Optional     | Sets the type of this item to a link.                        |
-| `label`    | `string`             | **Required** | The name to be shown for this item.                          |
-| `to`       | `string`             | **Required** | Client-side routing, used for navigating within the website. |
+| Name       | Type                 | Default      | Description                                                                                                        |
+| ---------- | -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `type`     | `"default"`          | Optional     | Sets the type of this item to a link.                                                                              |
+| `label`    | `string`             | **Required** | The name to be shown for this item.                                                                                |
+| `to`       | `string`             | **Required** | Client-side routing, used for navigating within the website.                                                       |
 | `href`     | `string`             | **Required** | A full-page navigation, used for navigating outside of the website. **Only one of `to` or `href` should be used.** |
-| `position` | `"left"  \| "right"` | `"left"`     | The side of the navbar this item should appear on.           |
+| `position` | `"left"  \| "right"` | `"left"`     | The side of the navbar this item should appear on.                                                                 |
 
 Example configuration:
-
-<CodeGroup>
 
 ```json docuo.config.json
 {
@@ -351,8 +276,6 @@ Example configuration:
       "items": [
         {
           "to": "/introduction",
-          // Only one of "to" or "href" should be used
-          // "href": "https://spreading.ai/blog",
           "label": "Introduction",
           "position": "left"
         }
@@ -361,8 +284,6 @@ Example configuration:
   }
 }
 ```
-
-</CodeGroup>
 
 - **Navbar dropdown**
 
@@ -385,8 +306,6 @@ Accepted fields:
 | `position` | `"left"        \| "right"` | `"left"`     | The side of the navbar this item should appear on. |
 
 Example configuration:
-
-<CodeGroup>
 
 ```json docuo.config.json
 {
@@ -416,29 +335,26 @@ Example configuration:
 }
 ```
 
-</CodeGroup>
-
 - **Navbar linked to a sidebar**
 
 You can link a navbar item to the first document link (which can be a doc link or a generated category index) of a given sidebar without having to hardcode a doc ID.
 
 Accepted fields:
 
-| Name             | Type                      | Default                             | Description                                                  |
-| ---------------- | ------------------------- | ----------------------------------- | ------------------------------------------------------------ |
+| Name             | Type                      | Default                             | Description                                                      |
+| ---------------- | ------------------------- | ----------------------------------- | ---------------------------------------------------------------- |
 | `type`           | `"docSidebar"`            | **Required**                        | Sets the type of this navbar item to a sidebar's first document. |
-| `sidebarIds`     | `string[]`                | **Required**                        | The ID list of the sidebar that this item is linked to.目前只支持设置一个 ID |
-| `label`          | `string`                  | First document link's sidebar label | The name to be shown for this item.                          |
-| `position`       | `"left"       \| "right"` | `"left"`                            | The side of the navbar this item should appear on.           |
-| `docsInstanceId` | `string`                  | `"default"`                         | The ID of the docs instance that the sidebar belongs to.       |
+| `sidebarIds`     | `string[]`                | **Required**                        | The ID list of the sidebar that this item is linked to.          |
+| `label`          | `string`                  | First document link's sidebar label | The name to be shown for this item.                              |
+| `position`       | `"left"       \| "right"` | `"left"`                            | The side of the navbar this item should appear on.               |
+| `docsInstanceId` | `string`                  | `"default"`                         | The ID of the docs plugin that the sidebar belongs to.           |
 
 <Tip title="TIP">
-Use this navbar item type if your sidebar is updated often and the order is not stable.
+  Use this navbar item type if your sidebar is updated often and the order is
+  not stable.
 </Tip>
 
 Example configuration:
-
-<CodeGroup>
 
 ```json docuo.config.json
 {
@@ -457,13 +373,9 @@ Example configuration:
 }
 ```
 
-</CodeGroup>
-
 The `sidebarId` of the navbar item corresponds to one of the sidebar keys, which is "mySidebar".
 
-<CodeGroup>
-
-```json sidebars
+```json sidebars.json
 {
   "mySidebar": [
     {
@@ -474,29 +386,26 @@ The `sidebarId` of the navbar item corresponds to one of the sidebar keys, which
 }
 ```
 
-</CodeGroup>
-
 ### Footer
 
 You can add logo and a copyright to the footer via `themeConfig.footer`. Logo can be placed in static folder. Logo URL works in the same way of the navbar logo.
 
 <Tip title="TIP">
-The default `static` direcory is  a static directory. The files under the paths will be copied to the build output as-is，which are absolute paths.
+  The default `static` direcory is a static directory. The files under the paths
+  will be copied to the build output as-is，which are absolute paths.
 </Tip>
 
 Accepted fields:
 
-| Name        | Type           | Default     | Description                                                  |
-| ----------- | -------------- | ----------- | ------------------------------------------------------------ |
+| Name        | Type           | Default     | Description                                                                                                     |
+| ----------- | -------------- | ----------- | --------------------------------------------------------------------------------------------------------------- |
 | `logo`      | `Logo`         | `undefined` | Customization of the logo url. See [Navbar logo](./Customize%20with%20json%20file.mdx#navbar-logo) for details. |
-| `copyright` | `string`       | `undefined` | The copyright message to be displayed at the bottom.         |
-| `caption`   | `string`       | `undefined` | The caption message to be displayed at the bottom.           |
-| `links`     | `FooterLink[]` | `[]`        | The link groups to be present.                               |
-| `socials`   | `SocialItem[]` | `[]`        | The social link groups to be present.                        |
+| `copyright` | `string`       | `undefined` | The copyright message to be displayed at the bottom.                                                            |
+| `caption`   | `string`       | `undefined` | The caption message to be displayed at the bottom.                                                              |
+| `links`     | `FooterLink[]` | `[]`        | The link groups to be present.                                                                                  |
+| `socials`   | `SocialItem[]` | `[]`        | The social link groups to be present.                                                                           |
 
 Example configuration:
-
-<CodeGroup>
 
 ```json docuo.config.json
 {
@@ -510,7 +419,20 @@ Example configuration:
 }
 ```
 
-</CodeGroup>
+If your website has configured `dark mode` and you have another logo for `dark mode`, you can also configure your footer logo like this:
+
+```json docuo.config.json
+{
+  "themeConfig": {
+    "footer": {
+      "logo": {
+        "light": "image/logo_light.png",
+        "dark": "image/logo_dark.png"
+      }
+    }
+  }
+}
+```
 
 #### Footer links
 
@@ -525,15 +447,13 @@ Multi-column footer links have a `title` and a list of `FooterItem`s for each co
 
 Accepted fields of each `FooterItem`:
 
-| Name    | Type     | Default      | Description                                                  |
-| ------- | -------- | ------------ | ------------------------------------------------------------ |
-| `label` | `string` | **Required** | Text to be displayed for this link.                          |
-| `to`    | `string` | **Required** | Client-side routing, used for navigating within the website. |
+| Name    | Type     | Default      | Description                                                                                                        |
+| ------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `label` | `string` | **Required** | Text to be displayed for this link.                                                                                |
+| `to`    | `string` | **Required** | Client-side routing, used for navigating within the website.                                                       |
 | `href`  | `string` | **Required** | A full-page navigation, used for navigating outside of the website. **Only one of `to` or `href` should be used.** |
 
 Example multi-column configuration:
-
-<CodeGroup>
 
 ```json docuo.config.json
 {
@@ -555,13 +475,9 @@ Example multi-column configuration:
 }
 ```
 
-</CodeGroup>
-
 A simple footer just has a list of `FooterItem`s displayed in a row.
 
 Example simple configuration:
-
-<CodeGroup>
 
 ```json docuo.config.json
 {
@@ -578,24 +494,18 @@ Example simple configuration:
 }
 ```
 
-</CodeGroup>
-
-
-
 #### Footer socials
 
 You can add socials to the footer via `themeConfig.footer.socials`.
 
 Accepted fields of each `SocialItem`:
 
-| Name   | Type                           | Default      | Description                                                  |
-| ------ | ------------------------------ | ------------ | ------------------------------------------------------------ |
+| Name   | Type                           | Default      | Description                                                                                                                                                        |
+| ------ | ------------------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `logo` | `Logo    \| DefaultSocialName` | **Required** | Customization of the logo url. See [Navbar logo](./Customize%20with%20json%20file.mdx#navbar-logo) for details.<br />Or the name of the built-in social media icon |
-| `href` | `string`                       | **Required** | A full-page navigation, used for navigating outside of the website. |
+| `href` | `string`                       | **Required** | A full-page navigation, used for navigating outside of the website.                                                                                                |
 
 The default items of`DefaultSocialName` include：“LinkedIn”、“Twitter”、“Facebook”、“Facebook”、“GitHub”、“Discord”
-
-<CodeGroup>
 
 ```json docuo.config.json
 {
@@ -615,7 +525,7 @@ The default items of`DefaultSocialName` include：“LinkedIn”、“Twitter”
           "href": "https://discord.gg/W8p93wcR"
         },
         {
-          "logo": "Github",
+          "logo": "GitHub",
           "href": "https://github.com/spreadingai"
         }
       ]
@@ -624,4 +534,54 @@ The default items of`DefaultSocialName` include：“LinkedIn”、“Twitter”
 }
 ```
 
-</CodeGroup>
+### Color mode
+
+You can customize your color mode within the `colorMode` object.
+
+Accepted fields:
+
+| Name                        | Type                 | Default   | Description                                                                                                               |
+| --------------------------- | -------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `defaultMode`               | `'light'  \| 'dark'` | `'light'` | The color mode when user first visits the site.                                                                           |
+| `disableSwitch`             | `boolean`            | `false`   | Hides the switch in the navbar. Useful if you want to support a single color mode.                                        |
+| `respectPrefersColorScheme` | `boolean`            | `false`   | Whether to use the prefers-color-scheme media-query, using user system preferences, instead of the hardcoded defaultMode. |
+
+Example configuration:
+
+```json docuo.config.json
+{
+  "themeConfig": {
+    "colorMode": {
+      "defaultMode": "light",
+      "disableSwitch": false,
+      "respectPrefersColorScheme": true
+    }
+  }
+}
+```
+
+<Warning title="Warning">With respectPrefersColorScheme: true, the defaultMode is overridden by user system preferences.</Warning>
+
+### Primary Colors
+
+You can customize your primary colors within the `colors` object.
+
+Accepted fields:
+
+| Name           | Type     | Default     | Description                                          |
+| -------------- | -------- | ----------- | ---------------------------------------------------- |
+| `primaryLight` | `string` | `'#1ABD00'` | Primary color for highlighted content in light mode. |
+| `primaryDark`  | `string` | `'#05EC07'` | Primary color for highlighted content in dark mode.  |
+
+Example configuration:
+
+```json docuo.config.json
+{
+  "themeConfig": {
+    "colors": {
+      "primaryLight": "#1ABD00",
+      "primaryDark": "#05EC07"
+    }
+  }
+}
+```
