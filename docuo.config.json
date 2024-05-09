@@ -17,7 +17,7 @@
       "items": [
         {
           "type": "docSidebar",
-          "sidebarIds": ["mySidebar"],
+          "sidebarId": "mySidebar",
           "label": "Documentation"
         },
         {

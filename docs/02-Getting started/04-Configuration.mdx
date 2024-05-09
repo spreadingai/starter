@@ -1,7 +1,7 @@
 # Configuration
 
 <Tip title="INFO">
-Check the `docuo.config.json` [**API reference**](../Customizing/Customize%20with%20json%20file.mdx) for an exhaustive list of options.
+Check the `docuo.config.json` [**API reference**](../customizing/customize-with-json-file.mdx) for an exhaustive list of options.
 </Tip>
 
 Docuo has a unique take on configurations. We encourage you to congregate information about your site into one place. We guard the fields of this file and facilitate making this data object accessible across your site.
@@ -25,7 +25,7 @@ The `docuo.config.json` file is run in Node.js and should returns a standard jso
       "items": [
         {
           "type": "docSidebar",
-          "sidebarIds": ["mySidebar"],
+          "sidebarId": "mySidebar",
           "label": "Documentation",
           "position": "left"
         }
@@ -91,5 +91,5 @@ Theme config includes all the configurations needed to generate site themes, mai
 
 To set the layout, `navbar` and `footer`  can control the layout of header navbar and site footer items. You can also set the group display of your documentation using `anchors `and `tabs`
 
-Check [Theme Customization](../Customizing/Customize%20with%20json%20file.mdx#themeconfig) for more information.
+Check [Theme Customization](https://docuo.spreading.io/customizing/customize-with-json-file#themeconfig) for more information.
 
